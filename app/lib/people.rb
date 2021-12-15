@@ -18,7 +18,7 @@ class People
   def method_missing(name, *args)
     case name
       when /^sort_by_([a-z_]+)/
-        @people.sort_by! { |a| a[:first_name] }
+        @people.sort_by! { |a| a[$1.to_sym] }
       else
         nil
       end
