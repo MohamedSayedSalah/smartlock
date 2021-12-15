@@ -1,9 +1,10 @@
 require 'time'
 class People
+  # exclude -> some of the columns like last_name might be excluded only on join
   attr_accessor :people, :exclude, :date_formatter
 
-  def initialize(args)
-    @exclude = args
+  def initialize(*args)
+    @exclude = args[0] if args
     @people = []
   end
 
@@ -25,7 +26,9 @@ class People
   end
 
   def join
-    @exclude.each { |e| @people.each{|p| p.delete(e.to_sym)} }
+    if @exclude
+      @exclude.each { |e| @people.each{|p| p.delete(e.to_sym)} }
+    end
     @people.map { |p| p.values.join(', ') }
   end
 

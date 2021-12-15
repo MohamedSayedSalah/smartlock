@@ -1,0 +1,5 @@
+city $ birthdate $ last_name $ first_name
+Los Angeles $ 30-4-1974 $ Nolan $ jhon
+New York City $ 5-1-1962 $ Bruen $ sandler
+Seattle $ 9-1-1992 $ Sayed $ mohamed
+Cairo $ 10-11-1924 $ Adam $ jackson

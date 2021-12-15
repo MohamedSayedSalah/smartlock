@@ -1,6 +1,6 @@
 class Formatter
   attr_accessor :content, :columns, :formatted_content
-  MAP = ['first_name' , 'last_name' , 'city' , 'birthdate']
+  MAP = ['first_name' , 'last_name' , 'city' , 'birthdate'] ## this is for ordering
 
   def initialize(path, content = nil)
     @content = content
@@ -24,11 +24,7 @@ class Formatter
   end
 
   def sort_hash hash
-    h = {}
-    MAP.each do |k|
-      h[k.to_sym] = hash[k.to_sym]
-    end
-    h
+    MAP.select{|m| @columns.include? m}.map{|m| [m.to_sym, hash[m.to_sym]] }.to_h
   end
 
   def set_hash sign
